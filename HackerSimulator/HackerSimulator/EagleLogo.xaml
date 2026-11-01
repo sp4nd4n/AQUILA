@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="HackerSimulator.EagleLogo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             IsHitTestVisible="False">
+    <Image x:Name="Pic" Source="/Assets/aquila.png" Stretch="Uniform"
+           RenderOptions.BitmapScalingMode="HighQuality"/>
+</UserControl>

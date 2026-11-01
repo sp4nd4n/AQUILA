@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\Spandan Chatterjee\source\repos\HackerSimulator\HackerSimulator\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="AppWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BootSplashView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ConsoleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DesktopView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EagleLogo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FileManagerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GrubView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HudPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WorldMapView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

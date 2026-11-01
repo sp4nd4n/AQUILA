@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Aquila</AssemblyName>
+    <ApplicationIcon>aquila.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\aquila.ico" />
+    <None Remove="Assets\aquila.png" />
+    <None Remove="Assets\desktop_bg.jpg" />
+    <None Remove="Assets\login_bg.jpg" />
+    <None Remove="Assets\power.png" />
+    <None Remove="Fonts\Orbitron-Bold.ttf" />
+    <None Remove="Fonts\Orbitron-Regular.ttf" />
+    <None Remove="Fonts\ShareTechMono-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="aquila.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\aquila.ico" />
+    <Resource Include="Assets\aquila.png" />
+    <Resource Include="Assets\desktop_bg.jpg" />
+    <Resource Include="Assets\login_bg.jpg" />
+    <Resource Include="Assets\power.png" />
+    <Resource Include="Fonts\Orbitron-Bold.ttf" />
+    <Resource Include="Fonts\Orbitron-Regular.ttf" />
+    <Resource Include="Fonts\ShareTechMono-Regular.ttf" />
+  </ItemGroup>
+
+</Project>

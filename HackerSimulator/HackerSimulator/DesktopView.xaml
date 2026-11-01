@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="HackerSimulator.DesktopView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HackerSimulator"
+             FontFamily="{StaticResource UiFont}">
+    <UserControl.Resources>
+        <Style x:Key="PanelBtn" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="9,0"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#33FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PopupItem" TargetType="Button">
+            <Setter Property="Foreground" Value="#FFE6EDF3"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="MinWidth" Value="210"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" Padding="14,7">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#FF2F6FEB"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/desktop_bg.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- top panel -->
+        <Border Grid.Row="0" Background="#E60F1118" Height="32" BorderBrush="#FF2A2F3A" BorderThickness="0,0,0,1">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <TextBlock x:Name="ClockText" Foreground="White" FontSize="13"
+                               VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <Button x:Name="PowerBtn" Style="{StaticResource PanelBtn}" Click="PowerBtn_Click">
+                        <Image Source="/Assets/power.png" Height="16" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Button>
+                    <Popup x:Name="PowerPopup" PlacementTarget="{Binding ElementName=PowerBtn}"
+                           Placement="Bottom" HorizontalOffset="-180" StaysOpen="False" AllowsTransparency="True">
+                        <Border Background="#F2161B22" BorderBrush="#FF3A3F4B" BorderThickness="1"
+                                Padding="3" Margin="0,2,0,12">
+                            <StackPanel>
+                                <Button Content="Log Out" Style="{StaticResource PopupItem}" Click="LogOut_Click"/>
+                                <Button Content="Restart" Style="{StaticResource PopupItem}" Click="Restart_Click"/>
+                                <Button Content="Shut Down" Style="{StaticResource PopupItem}" Click="ShutDown_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuBtn" Style="{StaticResource PanelBtn}" Click="MenuBtn_Click">
+                        <local:EagleLogo Width="22" Height="22"/>
+                    </Button>
+                    <Popup x:Name="MenuPopup" PlacementTarget="{Binding ElementName=MenuBtn}"
+                           Placement="Bottom" StaysOpen="False" AllowsTransparency="True">
+                        <Border Background="#F2161B22" BorderBrush="#FF3A3F4B" BorderThickness="1"
+                                Padding="3" Margin="0,2,12,12">
+                            <StackPanel>
+                                <Button Content="Terminal Emulator" Style="{StaticResource PopupItem}" Click="MenuTerminal_Click"/>
+                                <Button Content="File Manager" Style="{StaticResource PopupItem}" Click="MenuFiles_Click"/>
+                                <Button Content="Trash" Style="{StaticResource PopupItem}" Click="MenuTrash_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+
+                    <Rectangle Width="1" Fill="#33FFFFFF" Margin="4,7"/>
+                    <Button x:Name="TermBtn" Style="{StaticResource PanelBtn}" ToolTip="Terminal Emulator"
+                            Click="NewTerminal_Click"/>
+                    <Button x:Name="FolderBtn" Style="{StaticResource PanelBtn}" ToolTip="File Manager"
+                            Click="OpenHome_Click"/>
+                    <Rectangle Width="1" Fill="#33FFFFFF" Margin="4,7"/>
+                    <StackPanel x:Name="Taskbar" Orientation="Horizontal"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- desktop area: icons + windows -->
+        <Grid x:Name="DesktopArea" Grid.Row="1" Background="Transparent" MouseLeftButtonDown="DesktopArea_MouseDown">
+            <StackPanel x:Name="IconColumn" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,14,0,0"/>
+            <Canvas x:Name="WindowLayer" ClipToBounds="True"/>
+        </Grid>
+
+        <!-- overlay (map and dossier card) -->
+        <Grid x:Name="Overlay" Grid.RowSpan="2" Visibility="Collapsed" MouseLeftButtonDown="Overlay_MouseDown">
+            <Border x:Name="Backdrop" Background="#E6030407"/>
+            <ContentControl x:Name="OverlayHost" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

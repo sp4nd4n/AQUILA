@@ -1,0 +1,7 @@
+﻿<Window x:Class="HackerSimulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AQUILA" Icon="/Assets/aquila.ico" WindowStyle="None" WindowState="Maximized"
+        Background="Black" PreviewKeyDown="Window_KeyDown">
+    <ContentControl x:Name="Host"/>
+</Window>

@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="HackerSimulator.EditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FontFamily="{StaticResource UiFont}">
+    <UserControl.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Bd" Background="Transparent" BorderBrush="Transparent"
+                                BorderThickness="2,0,0,0" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#1AFFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#2200FF9C"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource GreenBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <Border Grid.Row="0" BorderBrush="{StaticResource DimBrush}" BorderThickness="0,0,0,1" Padding="0,0,0,14">
+            <StackPanel>
+                <TextBlock Text="◢ RESTRICTED // PROFILE EDITOR" Foreground="{StaticResource AmberBrush}" FontSize="12"/>
+                <TextBlock Text="TARGET DATABASE" FontSize="30" FontWeight="Bold" Foreground="{StaticResource WhiteBrush}"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="0,18,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- profile list -->
+            <Border Grid.Column="0" Background="{StaticResource PanelBrush}" BorderBrush="{StaticResource DimBrush}"
+                    BorderThickness="1" CornerRadius="6" Padding="10" Margin="0,0,18,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="ProfileList" Background="Transparent" BorderThickness="0"
+                             DisplayMemberPath="DisplayName" FontSize="15"
+                             SelectionChanged="ProfileList_SelectionChanged"/>
+                    <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                        <Button Content="+ NEW PROFILE" Style="{StaticResource NeonButton}" Click="AddBtn_Click"/>
+                        <Button x:Name="DeleteBtn" Content="DELETE" Style="{StaticResource NeonButton}"
+                                Foreground="{StaticResource RedBrush}" BorderBrush="{StaticResource RedBrush}"
+                                Margin="0,8,0,0" Click="DeleteBtn_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- form -->
+            <Border Grid.Column="1" Background="{StaticResource PanelBrush}" BorderBrush="#5500D8FF"
+                    BorderThickness="1" CornerRadius="6" Padding="26,22">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="FormPanel" Margin="0,0,14,0">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,26,0" Width="170">
+                                <Border Width="170" Height="170" ClipToBounds="True" Background="#99060A10"
+                                        BorderBrush="{StaticResource DimBrush}" BorderThickness="1" CornerRadius="3">
+                                    <Grid>
+                                        <TextBlock x:Name="PhotoHint" Text="NO PHOTO" Foreground="{StaticResource DimBrush}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <Image x:Name="PhotoImg" Stretch="UniformToFill"/>
+                                    </Grid>
+                                </Border>
+                                <Button Content="CHOOSE PHOTO" Style="{StaticResource NeonButton}" FontSize="11"
+                                        Foreground="{StaticResource CyanBrush}" BorderBrush="{StaticResource CyanBrush}"
+                                        Margin="0,10,0,0" Click="PhotoBtn_Click"/>
+                                <Button Content="REMOVE" Style="{StaticResource NeonButton}" FontSize="11"
+                                        Foreground="{StaticResource GrayBrush}" BorderBrush="{StaticResource DimBrush}"
+                                        Margin="0,6,0,0" Click="RemovePhotoBtn_Click"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="FULL NAME" Style="{StaticResource FieldLabel}" Margin="0,0,0,4"/>
+                                <TextBox x:Name="NameBox" TextChanged="NameBox_TextChanged"/>
+                                <TextBlock Text="ALIAS / NICKNAME" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="AliasBox"/>
+                                <TextBlock Text="BIRTHDAY / AGE" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="BirthBox"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="CONTACT" Foreground="{StaticResource GreenBrush}" FontSize="12" FontWeight="Bold" Margin="0,24,0,0"/>
+                        <Rectangle Height="1" Fill="{StaticResource DimBrush}" Margin="0,4,0,0"/>
+                        <UniformGrid Columns="2">
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="PHONE" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="PhoneBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="EMAIL" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="EmailBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="HOME ADDRESS" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="AddressBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="WORKPLACE / SCHOOL" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="WorkBox"/>
+                            </StackPanel>
+                        </UniformGrid>
+
+                        <TextBlock Text="SOCIAL MEDIA" Foreground="{StaticResource PurpleBrush}" FontSize="12" FontWeight="Bold" Margin="0,24,0,0"/>
+                        <Rectangle Height="1" Fill="{StaticResource DimBrush}" Margin="0,4,0,0"/>
+                        <UniformGrid Columns="2">
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="INSTAGRAM" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="InstaBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="FACEBOOK" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="FbBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="SNAPCHAT" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="SnapBox"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,14,0">
+                                <TextBlock Text="X / TWITTER" Style="{StaticResource FieldLabel}"/>
+                                <TextBox x:Name="XBox"/>
+                            </StackPanel>
+                        </UniformGrid>
+
+                        <TextBlock Text="CUSTOM FIELDS" Foreground="{StaticResource AmberBrush}" FontSize="12" FontWeight="Bold" Margin="0,24,0,0"/>
+                        <Rectangle Height="1" Fill="{StaticResource DimBrush}" Margin="0,4,0,0"/>
+                        <TextBlock Text="ONE PER LINE, e.g.  Favorite food: Pizza" Style="{StaticResource FieldLabel}"/>
+                        <TextBox x:Name="ExtraBox" AcceptsReturn="True" TextWrapping="Wrap" Height="110"
+                                 VerticalScrollBarVisibility="Auto"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <!-- footer -->
+        <Border Grid.Row="2" BorderBrush="{StaticResource DimBrush}" BorderThickness="0,1,0,0" Padding="0,12,0,0">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                    <Button Content="SAVE" Style="{StaticResource NeonButton}" Padding="22,8" Click="SaveBtn_Click"/>
+                    <Button Content="CLOSE" Style="{StaticResource NeonButton}" Padding="22,8" Margin="8,0,0,0"
+                            Foreground="{StaticResource GrayBrush}" BorderBrush="{StaticResource DimBrush}"
+                            Click="CloseBtn_Click"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="Status" FontSize="12" FontFamily="{StaticResource MonoFont}"/>
+                    <TextBlock Text="Ctrl+Shift+E or CLOSE to return  |  changes auto-save when you leave"
+                               Foreground="{StaticResource DimBrush}" FontSize="11" FontFamily="{StaticResource MonoFont}"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
