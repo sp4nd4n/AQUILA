@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HackerSimulator.WorldMapView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FontFamily="{StaticResource MonoFont}">
+    <Border Background="#E60B1017" BorderBrush="#5500D8FF" BorderThickness="1"
+            CornerRadius="6" Padding="22">
+        <StackPanel>
+            <TextBlock Text="◢ GLOBAL POSITIONING // SATELLITE UPLINK" Foreground="{StaticResource CyanBrush}" FontSize="12"/>
+            <TextBlock x:Name="StatusText" Foreground="{StaticResource AmberBrush}" FontSize="20" Margin="0,4,0,14"/>
+            <Canvas x:Name="MapCanvas" Width="1080" Height="432" ClipToBounds="True"/>
+            <TextBlock x:Name="InfoText" Foreground="{StaticResource WhiteBrush}" FontSize="16"
+                       Margin="0,14,0,0" MinHeight="22"/>
+        </StackPanel>
+    </Border>
+</UserControl>
