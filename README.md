@@ -3,14 +3,14 @@
 1. In the Releases section, open <ins>**AQUILA 1.0**</ins> and download <ins>Aquila-1.0.iso</ins> and <ins>AquilaLauncher-Setup.exe</ins>
 2. On your PC open AquilaLuncher-Setup.exe and install the launcher.
 3. Open the launcher, create a new virtual machine and <ins>*create your account*</ins> and then choose the <ins>*Aquila-1.0.iso*</ins> file.
-4. Click **start**
+4. Click **start.**
 
 ---
 
 ## What's inside?
 - Login using the details you created earlier.
 - Use the terminal to hack any famous celebrity's details.
-- **Get an exclusive KALI LINUX feel via this application**
+- **Get an exclusive KALI LINUX feel via this application.**
 
 ---
 
