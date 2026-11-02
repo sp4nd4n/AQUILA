@@ -56,4 +56,9 @@ This application is solely made for entertainment purposes. There's no intention
 
 ---
 
+## Where to get the commands?
+After starting the virtual machine, open a terminal and write **"help"** [If it ask for sudo permission, give it!]. Inside the terminal a bunch of commands will be showcased.
+
+---
+
 Ⓒ 2026 Spandan Chatterjee. All rights reserved.
