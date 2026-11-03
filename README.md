@@ -1,4 +1,6 @@
 # AQUILA
+![Static Badge](https://img.shields.io/badge/LANGUAGE-C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white) ![Static Badge](https://img.shields.io/badge/PLATFORM-WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white) ![Static Badge](https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white) ![Static Badge](https://img.shields.io/badge/IDE-VISUALSTUDIO-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white)
+
 ## How to install?
 1. In the Releases section, open <ins>**AQUILA 1.0**</ins> and download <ins>Aquila-1.0.iso</ins> and <ins>AquilaLauncher-Setup.exe</ins>
 2. On your PC open AquilaLuncher-Setup.exe and install the launcher.
