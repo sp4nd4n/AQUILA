@@ -57,7 +57,26 @@ This application is solely made for entertainment purposes. There's no intention
 ---
 
 ## Where to get the commands?
-After starting the virtual machine, open a terminal and write **"help"** [If it ask for sudo permission, give it!]. Inside the terminal a bunch of commands will be showcased.
+- After starting the virtual machine, open a terminal and write **"help"** [If it ask for sudo permission, give it!]. Inside the terminal a bunch of commands will be showcased.
+- If you ever forget your account password, then follow the steps mentioned:-
+1. When in login screen, press **"E"** on your keyboard.
+
+
+<p align="center">
+  <img height="350" src="https://github.com/user-attachments/assets/4d96a3e6-6688-4545-96e1-fa1b4272460b"/>
+</p>
+
+
+2. Account recovery page opens. Find the line **"ro quiet splash"**
+3. Change it to **"rw init=/bin/bash"**
+4. Then press **Ctrl + X**
+5. Wait for it's loading to complete.
+6. Then type:- **ls /home [only if you forget your username too] <-- <ins>This command shows your username.</ins>**
+7. Then write:- **passwd [username]**
+8. Change password.
+9. Type:- **reboot -f**
+
+Your password will change successfully!
 
 ---
 
