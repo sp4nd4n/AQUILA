@@ -88,4 +88,8 @@ Your password will change successfully!
 
 ---
 
+**This a beginner friendly app. So u get an optimum experience with ease!**
+
+---
+
 Ⓒ 2026 Spandan Chatterjee. All rights reserved.
