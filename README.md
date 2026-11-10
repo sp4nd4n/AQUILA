@@ -1,11 +1,6 @@
 # AQUILA
 
-<p align="center">
-  <img src="https://img.shields.io/badge/PLATFORM-WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-  <img src="https://img.shields.io/badge/LANGUAGE-C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white">
-  <img src="https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logoColor=white">
-  <img src="https://img.shields.io/badge/IDE-VISUAL%20STUDIO-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white">
-</p>
+<img src="https://img.shields.io/badge/PLATFORM-WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white"> <img src="https://img.shields.io/badge/LANGUAGE-C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white"> <img src="https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logoColor=white"> <img src="https://img.shields.io/badge/IDE-VISUAL%20STUDIO-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white">
 
 ## How to install?
 1. In the Releases section, open <ins>**AQUILA 1.0**</ins> and download <ins>Aquila-1.0.iso</ins> and <ins>AquilaLauncher-Setup.exe</ins>
@@ -34,9 +29,6 @@
   <img height="350" src="https://github.com/user-attachments/assets/cac267ee-3967-40ba-b7dd-f89c38636a3a"/>
 </p>
 
-
----
-
 ## What's inside?
 - Login using the details you created earlier.
 - Use the terminal to hack any famous celebrity's details.
@@ -53,8 +45,6 @@
 </p>
 
 
----
-
 ## DISCLAIMER!
 This application is solely made for entertainment purposes. There's no intention to harm any persons' privacy. All the information uploaded or gathered to/by this application has no risk of leakage. <ins>This app doesn't stores any personal information in it</ins>. Use this app properly without misuse.
 
@@ -62,12 +52,10 @@ This application is solely made for entertainment purposes. There's no intention
 
 **ANY FUTURE UPDATES WILL BE MENTIONED HERE.**
 
----
-
 ## Where to get the commands?
-- After starting the virtual machine, open a terminal and write **"help"** [If it ask for sudo permission, give it!]. Inside the terminal a bunch of commands will be showcased.
+- After starting the virtual machine, open a terminal and write `help` [If it ask for sudo permission, give it!]. Inside the terminal a bunch of commands will be showcased.
 - If you ever forget your account password, then follow the steps mentioned:-
-1. When in login screen, press **"E"** on your keyboard.
+1. When in login screen, press `E` on your keyboard.
 
 
 <p align="center">
@@ -75,14 +63,14 @@ This application is solely made for entertainment purposes. There's no intention
 </p>
 
 
-2. Account recovery page opens. Find the line **"ro quiet splash"**
-3. Change it to **"rw init=/bin/bash"**
-4. Then press **Ctrl + X**
+2. Account recovery page opens. Find the line `ro quiet splash`
+3. Change it to `rw init=/bin/bash`
+4. Then press `Ctrl + X`
 5. Wait for it's loading to complete.
-6. Then type:- **ls /home [only if you forget your username too] <-- <ins>This command shows your username.</ins>**
-7. Then write:- **passwd [username]**
+6. Then type:- `ls /home` **[only if you forget your username too]<ins>This command shows your username.</ins>**
+7. Then write:- `passwd [username]`
 8. Change password.
-9. Type:- **reboot -f**
+9. Type:- `reboot -f`
 
 Your password will change successfully!
 
