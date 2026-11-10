@@ -67,7 +67,7 @@ This application is solely made for entertainment purposes. There's no intention
 3. Change it to `rw init=/bin/bash`
 4. Then press `Ctrl + X`
 5. Wait for it's loading to complete.
-6. Then type:- `ls /home` **[only if you forget your username too]<ins>This command shows your username.</ins>**
+6. Then type:- `ls /home` **[only if you forget your username too] ← <ins>This command shows your username.</ins>**
 7. Then write:- `passwd [username]`
 8. Change password.
 9. Type:- `reboot -f`
